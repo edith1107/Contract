@@ -100,10 +100,6 @@ contract ERC20 is Context, IERC20 {
         return _symbol;
     }
 
-    function decimals() public view virtual returns (uint8) {
-        return _decimals;
-    }
-
     function totalSupply() public view virtual override returns (uint256) {
         return _totalSupply;
     }
@@ -186,7 +182,7 @@ contract ERC20 is Context, IERC20 {
 
 contract Token is ERC20 {
 
-    constructor (string name, string symbol,uint256 totalsupply) ERC20("Token", "TKN") {
-        _mint(msg.sender, totalsupply));
+    constructor (string memory name, string memory symbol,uint256 totalsupply) ERC20(name, symbol) {
+        _mint(msg.sender, totalsupply);
     }
 }
